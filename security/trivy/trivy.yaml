@@ -1,0 +1,66 @@
+# Trivy Configuration
+# Scan configuration for container security scanning
+
+# Vulnerability scanning
+vulnerability:
+  type:
+    - os
+    - library
+  
+# Severity levels to report
+severity:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+  - LOW
+
+# Ignore unfixed vulnerabilities
+ignore-unfixed: false
+
+# Exit code
+exit-code: 1
+
+# Output format
+format: json
+
+# Security checks
+security-checks:
+  - vuln
+  - config
+  - secret
+
+# Scan targets
+scan:
+  skip-dirs:
+    - /usr/share
+    - /var/lib
+  skip-files:
+    - "**/*.md"
+    - "**/*.txt"
+
+# Timeout
+timeout: 10m
+
+# Cache
+cache:
+  backend: fs
+  ttl: 24h
+
+# Offline mode
+offline-scan: false
+
+# Thresholds for pipeline failure
+exit-on:
+  critical: 0
+  high: 0
+  medium: 10
+  low: 50
+
+# Report configuration
+report:
+  format: 
+    - json
+    - sarif
+  output:
+    - trivy-report.json
+    - trivy-report.sarif

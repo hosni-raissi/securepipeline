@@ -1,0 +1,67 @@
+{
+  "vulnerabilities": [],
+  "security_hotspots": [],
+  "quality_gate": {
+    "status": "PASSED"
+  },
+  "secrets": [],
+  "licenses": ["MIT", "Apache-2.0"],
+  "dependencies": [],
+  "headers": [
+    "X-Frame-Options",
+    "X-Content-Type-Options",
+    "Content-Security-Policy"
+  ],
+  "security_practices": {
+    "threat_modeling": true,
+    "secure_design": true,
+    "url_validation": true
+  },
+  "authentication": {
+    "mfa_enabled": true
+  },
+  "integrity": {
+    "checksums_verified": true
+  },
+  "logging": {
+    "security_events": true
+  },
+  "monitoring": {
+    "enabled": true
+  },
+  "docker": {
+    "user": "appuser",
+    "privileged": false,
+    "base_image": "python:3.11-slim"
+  },
+  "security": {
+    "trivy_scan": true
+  },
+  "sonarqube": {
+    "coverage": 85,
+    "code_smells_critical": 0,
+    "technical_debt_days": 2
+  },
+  "deployment": {
+    "environment": "development",
+    "change_ticket": "",
+    "approver": "",
+    "rollback_plan": true
+  },
+  "gates": {
+    "sast_passed": true,
+    "dast_passed": true,
+    "container_scan_passed": true
+  },
+  "network": {
+    "public_ips": [],
+    "firewall": true,
+    "tls_enabled": true,
+    "tls_version": 1.3
+  },
+  "data": {
+    "encryption_at_rest": true,
+    "encryption_in_transit": true,
+    "sensitive_in_logs": false
+  }
+}

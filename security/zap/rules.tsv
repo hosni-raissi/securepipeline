@@ -1,0 +1,35 @@
+# ZAP Alert Rules Configuration
+# Format: ALERT_ID	URL_REGEX	PARAMETER	CWE_ID	WASC_ID	ACTION
+
+# SQL Injection - Block all instances
+40018	.*	.*	89	19	FAIL
+
+# Cross-Site Scripting (XSS)
+40012	.*	.*	79	8	FAIL
+40014	.*	.*	79	8	FAIL
+40016	.*	.*	79	8	FAIL
+40017	.*	.*	79	8	FAIL
+
+# Command Injection
+90020	.*	.*	78	31	FAIL
+
+# Path Traversal
+6	.*	.*	22	33	FAIL
+
+# Remote File Inclusion
+7	.*	.*	98	5	FAIL
+
+# Server Side Code Injection
+90019	.*	.*	94	20	FAIL
+
+# XML External Entity (XXE)
+90023	.*	.*	611	43	FAIL
+
+# Insecure Deserialization
+90026	.*	.*	502	14	FAIL
+
+# Security Headers
+10021	.*	.*	16	15	WARN	# X-Content-Type-Options
+10020	.*	.*	16	15	WARN	# X-Frame-Options
+10038	.*	.*	16	15	WARN	# Content-Security-Policy
+10096	.*	.*	16	15	WARN	# Timestamp Disclosure
